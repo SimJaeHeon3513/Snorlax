@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()
+{
+    int X;
+    int N = 1;
+    scanf("%d", &X);
+    
+    while(X > N){
+        X -= N;
+        N++;
+        
+    }
+    
+    if(N % 2 == 0){
+        printf("%d/%d", X, N - X + 1);
+    }
+    else{
+        printf("%d/%d", N - X + 1, X);
+    }
+    
+    
+    return 0;
+}
