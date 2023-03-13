@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+    int N =0;
+    int dot1 = 0;
+    int dot2 = 0;
+    int area[100][100] = {0, };
+    int count = 0;
+    
+    scanf("%d", &N);
+    for(int i = 0; i < N; i++){
+        scanf("%d %d", &dot1, &dot2);
+        for(int j = dot1 - 1; j < dot1 + 9; j++){
+            for(int k = dot2 - 1; k < dot2 + 9; k++){
+                area[j][k] = 1;
+            }
+        }
+    }
+    
+    for(int i = 0; i < 100; i++){
+        for(int j = 0; j < 100; j++){
+            if(area[i][j] == 1){
+                count++;
+            }
+        }
+    }
+    
+    printf("%d", count);
+
+    return 0;
+}
