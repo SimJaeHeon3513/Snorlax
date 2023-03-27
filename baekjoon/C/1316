@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+int main()
+{
+    int n = 0, count = 0;
+    char word[100];
+    
+    
+    scanf("%d", &n);
+    count = n;
+    
+    for(int i = 0; i < n; i++){
+        scanf("%s", word);
+        bool alpha[26] = {false, };
+        alpha[word[0] - 'a'] = true;
+        
+        
+        for(int j = 1; j < strlen(word); j++){
+            if(word[j] == word[j-1]){
+                continue;
+            }
+            else if(word[j] != word[j-1] && alpha[word[j] - 'a'] == true){
+                count--;
+                break;
+            }
+            else{
+                alpha[word[j] - 'a'] = true;
+            }
+        }
+        
+    }
+    printf("%d", count);
+    return 0;
+}
