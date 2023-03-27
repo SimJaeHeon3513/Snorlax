@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+float get_score(char *grade){
+    if(grade[0] != 'F'){
+        if(grade[1] == '+'){
+            return 'F' - grade[0] - 0.5;
+        }
+        else if(grade[1] == '0'){
+            return 'F' - grade[0] - 1.0;
+        }
+    }
+    return 0;
+}
+int main(){
+    char sbj[51];
+    char grade[2];
+    float hakjeom, hakjeom_sum = 0;
+    double sum = 0;
+    
+    for(int i = 0; i < 20; i++){
+        scanf("%s %f %s", sbj, &hakjeom, grade);
+        if(grade[0] != 'P'){
+            hakjeom_sum += hakjeom;
+            sum += hakjeom * get_score(grade); 
+        }
+    } 
+    printf("%lf\n", sum / hakjeom_sum);
+    
+}
