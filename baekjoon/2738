@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main()
+{
+    int N, M;
+    scanf("%d %d", &N, &M);
+    int matrix_A[N][M];
+    int matrix_B[N][M];
+    int sum[N][M];
+    
+    for(int i = 0; i < N; i++){
+        for(int j =0; j < M; j++){
+            scanf("%d", &matrix_A[i][j]);
+        }
+    }
+    
+    for(int i = 0; i < N; i++){
+        for(int j =0; j < M; j++){
+            scanf("%d", &matrix_B[i][j]);
+        }
+    }
+    
+    for(int i = 0; i < N; i++){
+        for(int j =0; j < M; j++){
+            sum[i][j] = matrix_A[i][j] + matrix_B[i][j];
+        }
+    }
+    
+    for(int i = 0; i < N; i++){
+        for(int j =0; j < M; j++){
+            printf("%d ", sum[i][j]);
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
