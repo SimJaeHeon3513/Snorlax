@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int N, M, I, J, K = 0;
+    scanf("%d %d", &N, &M);
+    
+    int* basket = (int*)malloc(sizeof(int) * N);
+    int* temp = (int*)malloc(sizeof(int) * N);
+    
+    for(int i = 0; i < N; i++){
+        basket[i] = i+1;
+        temp[i] = i+1;
+    }
+    for(int i = 0; i < M; i++){
+        scanf("%d %d %d", &I, &J, &K);
+        for(int t = 0; t <= (J - K); t++){
+            temp[I - 1 + t] = basket[K - 1 + t];
+        }
+        for(int p = 0; p < (K - I); p++){
+            temp[I + J - K + p] = basket[I - 1 + p];
+        }
+        
+        for(int q = (I - 1); q < J; q++){
+            basket[q] = temp[q];
+        }
+    }
+    
+    for(int t = 0; t < N; t++){
+        printf("%d ", basket[t]);
+    }
+    
+    
+    free(basket);
+    free(temp);
+    
+    return 0;
+}
