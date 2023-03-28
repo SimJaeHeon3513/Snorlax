@@ -1,0 +1,31 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int N = 0, M = 0, num = 0, answer = 0;
+    map<int, int> m;
+    
+    cin >> N;
+    for(int i = 0; i < N; i++){
+        cin >> num;
+        m[num]++;
+    }
+    
+    cin >> M;
+    for(int j = 0; j < M; j++){
+        cin >> answer;
+        if(m.find(answer) != m.end()){
+            cout << m[answer] << ' ';
+        }
+        else{
+            cout << '0' << ' ';
+        }
+    }
+
+    return 0;
+}
