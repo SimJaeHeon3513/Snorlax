@@ -1,0 +1,38 @@
+#include <stdio.h>
+#pragma warning(disable:4996)
+
+int main()
+{
+
+    int n = 0;
+    
+    while (1) {
+        int factors[100] = { 0, };
+        int sum = 0, count = 0;
+        scanf("%d", &n);
+        
+        if (n == -1) {
+            break;
+        }
+        for (int i = 1; i < n; i++) {
+            if (n % i == 0) {
+                sum += i;
+                factors[count] = i;
+                count++;
+            }
+        }
+
+        if (sum == n) {
+            printf("%d = 1", n);
+            for (int i = 1; i < count; i++) {
+                printf(" + %d", factors[i]);
+            }
+            printf("\n");
+        }
+        else if (sum != n) {
+            printf("%d is NOT perfect.\n", n);
+        }
+
+    }
+    return 0;
+}
