@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int N, M, I, J, temp = 0;
+    scanf("%d %d", &N, &M);
+    
+    int* basket = (int*)malloc(sizeof(int) * N);
+    
+    for(int i = 0; i < N; i++){
+        basket[i] = i+1;
+    }
+    for(int i = 0; i < M; i++){
+        scanf("%d %d", &I, &J);
+        for(int j = I - 1, k = J - 1; j < k; j++, k--){
+            temp = basket[j];
+            basket[j] = basket[k];
+            basket[k] = temp;
+        }
+    }
+    
+    for(int t = 0; t < N; t++){
+        printf("%d ", basket[t]);
+    }
+    
+    free(basket);
+    
+    return 0;
+}

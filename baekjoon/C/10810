@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+    int N, M, I, J, K = 0;
+    scanf("%d %d", &N, &M);
+    
+    int basket[101] = {0, };
+    
+    for(int i = 0; i < M; i++){
+        scanf("%d %d %d", &I, &J, &K);
+        for(int j = I - 1;  j < J; j++){
+            basket[j] = K;
+        }
+    }
+    
+    for(int t = 0; t < N; t++){
+        printf("%d ", basket[t]);
+    }
+    
+
+    return 0;
+}
